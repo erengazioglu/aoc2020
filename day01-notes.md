@@ -15,5 +15,13 @@ for that i need to:
 
 installed a bunch of packages etc, now pressing f5 runs the file
 
-
 ### parsing
+
+just read .txt file line by line and strip \ln, then used .sort()
+
+### algorithm
+
+first solution is super inefficient: for loop going through indexes 0:-1, then popping array(-1) in a while loop until it finds a solution  
+use a set
+
+**algorithm 2:** create set, for loop with value 1 (var v1), remove v1 from set, index v2 = index v1 + 1 every loop, remove v2 from set, 2020 - v1 - v2 is v3, check if v3 is in set
