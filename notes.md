@@ -29,3 +29,8 @@ use a set
 # day 2
 
 wrote all the parsing by simple slicing. i need to learn regex to optimize this code
+
+# final to-do list
+
+* optimize day01 by using a set and do not manipulate the array (makes it slower)
+* replace the slicing on day02 with regex
