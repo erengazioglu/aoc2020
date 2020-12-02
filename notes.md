@@ -1,4 +1,4 @@
-# notes for day 1
+# day 1
 
 the puzzle gives an input which is a bunch of numbers and asks to find two numbers whose sum is 2020, and multiply them together
 
@@ -25,3 +25,7 @@ first solution is super inefficient: for loop going through indexes 0:-1, then p
 use a set
 
 **algorithm 2:** create set, for loop with value 1 (var v1), remove v1 from set, index v2 = index v1 + 1 every loop, remove v2 from set, 2020 - v1 - v2 is v3, check if v3 is in set
+
+# day 2
+
+wrote all the parsing by simple slicing. i need to learn regex to optimize this code
