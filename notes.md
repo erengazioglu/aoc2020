@@ -35,11 +35,20 @@ wrote all the parsing by simple slicing. i need to learn regex to optimize this 
 * optimize day01 by using a set and do not manipulate the array (makes it slower)
 * replace the slicing on day02 with regex
 * day03 regex?
+* day05 input rstrip seems super inefficient?
 
 # day 4
+
+code is fragmented for debugging (had a lot of trouble with the 2. part). turned it into regex altogether and for some reason now it works. 
 
 ### regex notes
 
 square brackets mean a single character from given set (e.g. [123] means it could be either 1, 2, or 3). **Shorthands:** [1-3], [A-Za-z], [^123] (not 1, 2, or 3), round brackets mean a group of characters
 
 import re package for python code
+
+# day 5
+
+first half no problem, but second half gives me wrong answer (some value off by 1 or something). code should actually work exactly as-is, no clue where the problem is from. ran with input_alt(pipicanim), got an ID 1 lower than i was supposed to. also, lowest number should be 6, not 5 (i got 7, 5)...
+
+gonna make day05-unittest separately
