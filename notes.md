@@ -34,3 +34,12 @@ wrote all the parsing by simple slicing. i need to learn regex to optimize this 
 
 * optimize day01 by using a set and do not manipulate the array (makes it slower)
 * replace the slicing on day02 with regex
+* day03 regex?
+
+# day 4
+
+### regex notes
+
+square brackets mean a single character from given set (e.g. [123] means it could be either 1, 2, or 3). **Shorthands:** [1-3], [A-Za-z], [^123] (not 1, 2, or 3), round brackets mean a group of characters
+
+import re package for python code
