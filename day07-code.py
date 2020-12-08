@@ -1,12 +1,27 @@
 import re
 
 def convert_input(arr):
-    mydict = dict()
-    for item in arr:
-        mydict[item[0]] = item[1]
-    return mydict
+    bags = dict()
+    for i in range(len(arr)):
+        match = re.match("([a-z ]+) bags contain (.*).", arr[i])
+        key = match.group(1)
+        val = match.group(2)
+        bags[key] = []
+        if val != "no other bags":
+            li = re.findall("(\d [a-z]+ [a-z]+)", val)
+            for item in li:
+                match = re.match("(\d) (.*)", item)
+                for a in range(int(match.group(1))):
+                    bags[key].append(match.group(2))
+    return bags
 
 def unpack(item):
+    return bag_dict[item]
+
+
+    
+    
+    """
     isEmpty = False
     if bags[item] == []:
         isEmpty = True
@@ -25,12 +40,57 @@ def unpack(item):
         if recur >= 6:
             return False
     return False
+    """
 
 input_res = open("day07-input.txt", "r")
 input_arr = input_res.readlines()
 input_res.close()
 
-for i in range(len(input_arr)):
+bag_dict = convert_input(input_arr)
+print(bag_dict)
+print()
+
+# unpacking loop
+unpacking = True
+
+count = 0
+while unpacking:
+    count_empty = 0
+    print("starting loop")
+    print()
+    for item in bag_dict:
+        
+#        print("unpacking: " + str(item))
+#        print("it has: " + str(bag_dict[item]))
+        arr_copy = bag_dict[item].copy()
+        bag_dict[item].clear()
+
+        for a in arr_copy:
+#            print("opened " + str(a))
+            if a == "shiny gold":
+                print("*****a shiny gold*****")
+                bag_dict[item].clear()
+                count += 1
+                break
+            bag_dict[item] += unpack(a)
+#            print("dict is now: " + str(bag_dict[item]))
+
+        if len(bag_dict[item]) == 0:
+            print("dict empty")
+            count_empty += 1
+    if count_empty == len(bag_dict):
+#        print("breaking")
+#        print(count)
+        break
+
+print()
+print(count)
+print(bag_dict)
+
+
+
+
+"""
     input_arr[i] = (input_arr[i].rstrip("\n")).split("contain")
     input_arr[i][0] = input_arr[i][0].rstrip(" bags ")
     if re.search("fuchsi|aqu|magent", input_arr[i][0]) != None:
@@ -76,7 +136,7 @@ for item in bags:
         print("count")
     
 print(count)
-
+"""
 
 # .split(", ") will give a list of "[\d ([a-z]* [a-z]*) bags]" objects
 # ^\d will give you a temporary variable i
