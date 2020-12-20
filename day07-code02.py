@@ -16,17 +16,11 @@ def convert_input(arr):
     return bags
 
 def unpack(item):
-    if item == "shiny gold":
-        #print("shiny gold found")
-        return True
-    if len(bag_dict[item]) == 0:
-        #print("empty bag")
-        return False
+    count = 1
     for a in bag_dict[item]:
-        #print("unpacking: " + a)
-        if unpack(a):
-            return True
-    return False
+        count += unpack(a)
+    return count
+
 
 input_res = open("day07-input.txt", "r")
 input_arr = input_res.readlines()
@@ -37,11 +31,7 @@ print(bag_dict)
 print()
 
 count = 0
-bag_dict.pop("shiny gold")
-for a in bag_dict:
-    print("unpacking: " + a)
-    count += unpack(a)
-
+count += unpack("shiny gold")
 print(count)
 
 # RECURSIVE UNPACK:

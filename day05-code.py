@@ -16,6 +16,7 @@ def find_seat(bp):
     i1 = 0
     i2 = 7
     for a in range(len(bp)-3, len(bp)):
+        # print(len(bp))
         if bp[a] == "L":
             i2 -= math.ceil((i2-i1)/2)
         else:
@@ -41,12 +42,12 @@ for i in range(len(input_arr)):
     input_arr[i] = input_arr[i].rstrip("\n")
 
 id_list = get_highest(input_arr)
-print(id_list)
+# print(id_list)
 missing_seats = set()
 for i in range(1, len(id_list)-1):
-    print(id_list[i+1])
-    print(id_list[i-1])
-    print()
+    # print(id_list[i+1])
+    # print(id_list[i-1])
+    # print()
     if (id_list[i+1] - id_list[i-1]) != -2:
         missing_seats.add(id_list[i])
 print(missing_seats)
